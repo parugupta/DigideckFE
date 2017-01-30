@@ -1,9 +1,16 @@
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
 
 # Folder config file
 Desktop.ini
+
+# Ignore NPM debug log
+npm-debug.log
+
+# Ignore Quickstart launches in the source tree
+license.properties
 
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
@@ -45,3 +52,28 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# Ignore compilation results
+/target
+/frontend/target
+/dist
+/frontend/dist
+/frontend/node_modules
+/frontend/reports
+/frontend/bower
+/frontend/app/bower_components/
+
+# Ignore IDE and Operating System artifacts
+.idea
+.classpath
+.metadata
+.project
+.settings
+maven-eclipse.xml
+*.iml
+*.ipr
+*.iws
+*.rej
+.DS_Store
+*.sublime-workspace
+.tmp
