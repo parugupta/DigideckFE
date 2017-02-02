@@ -1,12 +1,16 @@
 <div class="tab-pane">
-    <form>
+    <form ng-submit="slide.submitSlide()">
 		<div class="form-group">
 			<label for="slideTitle" class="form-label">Slide Title :</label>
-			<input type="text" class="form-control" id="slideTitle" >
+			<input type="text" class="form-control" id="slideTitle" required placeholder="Enter slide title" ng-model="slide.title">
 		</div>
 		<div class="form-group">
 			<label for="slideDesc" class="form-label">Description :</label>
-			<textarea type="text" class="form-control" id="slideDesc" ></textarea>
+			<textarea type="text" class="form-control" id="slideDesc" placeholder="Enter slide content" ng-model="slide.description"></textarea>
+		</div>
+		<div class="form-group">
+			<label for="slideUrl" class="form-label">Video URL :</label>
+			<input type="text" class="form-control" id="slideUrl" placeholder="Enter video URL" ng-model="slide.videoUrl">
 		</div>
 		<button type="submit" class="btn btn-primary">Submit</button>
 	</form>

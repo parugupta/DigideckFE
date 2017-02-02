@@ -9,6 +9,17 @@ angular.module('myApp', [
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');
+  $routeProvider.when('/update', {
+    templateUrl: 'modules/update/update.html'
+  });
 
-  //$routeProvider.otherwise({redirectTo: '/deck'});
+  $routeProvider.when('/create', {
+    templateUrl: 'modules/create/create.html'
+  });
+
+  $routeProvider.when('/view', {
+    templateUrl: 'modules/view/view.html'
+  });
+
+  $routeProvider.otherwise({redirectTo: '/create'});
 }]);

@@ -37,53 +37,31 @@
           <div id='navbar' class='navbar-collapse collapse'>
             <ul class='nav navbar-nav'>
               <!--<li class='active'><a href='#'>Create <span class='sr-only'>(current)</span></a></li>-->
-              <li class='dropdown'>
-                <a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>View <span class='caret'></span></a>
-                <ul class='dropdown-menu'>
-                  <li><a href='#DeckContent'  data-toggle="tab">Deck</a></li>
-                  <li><a href='#SectionContent'  data-toggle="tab">Section</a></li>
-                  <li><a href='#SlideContent'  data-toggle="tab">Slide</a></li>
-                </ul>
+              <li>
+                <a href='#!/view' role='button' aria-haspopup='true' aria-expanded='false'>View</a>
               </li>
-              <li class='dropdown'>
-                <a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>Create <span class='caret'></span></a>
-                <ul class='dropdown-menu'>
-                  <li><a href='#DeckContent'  data-toggle="tab">Deck</a></li>
-                  <li><a href='#SectionContent'  data-toggle="tab">Section</a></li>
-                  <li><a href='#SlideContent'  data-toggle="tab">Slide</a></li>
-                </ul>
+              <li>
+                <a href='#!/create' role='button' aria-haspopup='true' aria-expanded='false'>Create</a>
               </li>
-              <li class='dropdown'>
-                <a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>Update <span class='caret'></span></a>
-                <ul class='dropdown-menu'>
-                  <li><a href='#DeckContent'  data-toggle="tab">Deck</a></li>
-                  <li><a href='#SectionContent'  data-toggle="tab">Section</a></li>
-                  <li><a href='#SlideContent'  data-toggle="tab">Slide</a></li>
-                </ul>
+              <li>
+                <a href='#!/update' role='button' aria-haspopup='true' aria-expanded='false'>Update</a>
               </li>
             </ul>
           </div>
+
+          <ul class="nav nav-pills">
+              <li role="presentation" class="active"><a href="#deck" data-toggle="tab">Deck</a></li>
+              <li role="presentation"><a href="#section" data-toggle="tab">Section</a></li>
+              <li role="presentation"><a href="#slide" data-toggle="tab">Slide</a></li>
+          </ul>
         </div>
       </nav>
-      <!-- Tabs commented for now , in case used for responsive view -->
-    <!--<ul class="nav nav-pills">
-      <!-- <li role="presentation" class="active"><a href="#!/deck">Deck</a></li> !->
-      <li role="presentation" class="active"><a href="#DeckContent" data-toggle="tab">Deck</a></li>
-      <li role="presentation"><a href="#SectionContent" data-toggle="tab">Section</a></li>
-      <li role="presentation"><a href="#SlideContent" data-toggle="tab">Slide</a></li>
-    </ul>-->
-
-    <div class="tab-content">
-        <new-deck  id="DeckContent" class="tab-pane fade in active"></new-deck>
-        <new-section id="SectionContent" class="tab-pane fade"></new-section>
-        <new-slide  id="SlideContent" class="tab-pane fade"></new-slide>
-    </div>
     
     <!--[if lt IE 7]>
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <!-- <div ng-view></div> -->
+     <div ng-view></div> 
   </div>
 
   <!-- <div>Digideck FE: v<span app-version></span></div> -->
@@ -99,6 +77,7 @@
               $(this). find('.dropdown-menu'). stop(true, true). delay(100). fadeOut(200);
             });
   </script>
+  <script src="modules/create/create.js"></script>
   <script src="components/new-deck/new-deck-directive.js"></script>
   <script src="components/new-section/new-section-directive.js"></script>
   <script src="components/new-slide/new-slide-directive.js"></script>
