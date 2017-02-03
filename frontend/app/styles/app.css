@@ -1,0 +1,9 @@
+/* app css stylesheet */
+body {
+	margin: 20px;
+}
+
+.error-message {
+	font-size: 12px;
+	color: red;
+}

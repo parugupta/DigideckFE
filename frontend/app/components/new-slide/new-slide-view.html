@@ -1,12 +1,27 @@
 <div class="tab-pane">
-    <form>
+	<div ng-switch="slide.isSlideCreated" class="pc-alert">
+		<div ng-switch-when="success" class="alert alert-success">
+			<strong>Success!</strong> Slide is successfully created.
+		</div>
+		<div ng-switch-when="error" class="alert alert-danger">
+			<strong>Sorry!</strong> Slide could not be created. Please try again later!!
+		</div>
+	</div>
+    <form name="slide.formCreateSlide" ng-submit="slide.formCreateSlide.$valid && slide.submitSlide()" novalidate>
 		<div class="form-group">
 			<label for="slideTitle" class="form-label">Slide Title :</label>
-			<input type="text" class="form-control" id="slideTitle" >
+			<input type="text" class="form-control" name="slideTitle" required placeholder="Enter slide title" ng-model="slide.title">
+			<span class="error-message" ng-show="slide.showError('slideTitle')">Please enter the slide title</span>
 		</div>
 		<div class="form-group">
 			<label for="slideDesc" class="form-label">Description :</label>
-			<textarea type="text" class="form-control" id="slideDesc" ></textarea>
+			<textarea type="text" class="form-control" name="slideDesc" placeholder="Enter slide content" ng-model="slide.description"></textarea>
+			<span class="error-message" ng-show="slide.showError('slideDesc')">Please enter the slide title</span>
+		</div>
+		<div class="form-group">
+			<label for="slideUrl" class="form-label">Video URL :</label>
+			<input type="text" class="form-control" name="slideUrl" placeholder="Enter video URL" ng-model="slide.videoUrl">
+			<span class="error-message" ng-show="slide.showError('slideUrl')">Please enter the slide title</span>
 		</div>
 		<button type="submit" class="btn btn-primary">Submit</button>
 	</form>
