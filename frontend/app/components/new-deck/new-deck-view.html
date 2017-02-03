@@ -1,13 +1,22 @@
 <div class="tab-pane">
-	<form ng-submit="deck.submitDeck()">
+	<div ng-switch="deck.isDeckCreated" class="pc-alert">
+		<div ng-switch-when="success" class="alert alert-success">
+			<strong>Success!</strong> Deck is successfully created.
+		</div>
+		<div ng-switch-when="error" class="alert alert-danger">
+			<strong>Sorry!</strong> Deck could not be created. Please try again later!!
+		</div>
+	</div>
+	<form name="deck.formCreateDeck" ng-submit="deck.formCreateDeck.$valid && deck.submitDeck()" novalidate>
 		<div class="form-group">
-			<label for="deckTitle" class="form-label">Deck Title :</label>
-			<input type="text" class="form-control" id="deckTitle" required ng-model="deck.title" placeholder="Please enter deck title...">
+			<label for="deckName" class="form-label">Deck Name:</label>
+			<input type="text" class="form-control" name="deckName" required ng-model="deck.name" placeholder="Please enter deck name">
+			<span class="error-message" ng-show="deck.showError('deckName')">Please enter the deck name</span>
 		</div>
 		<div class="form-group">
-			<label for="industry" class="col-2 col-form-label">Industry : </label>
-			<select name="industry" required id="industry" ng-model="deck.industryVal">
-					<option ng-repeat="industry in deck.industries track by $index" value="{{industry}}">{{industry}}</option>
+			<label for="industry" class="col-2 col-form-label">Industry: </label>
+			<select name="industry" name="industry" ng-model="deck.industry">
+				<option ng-repeat="industry in deck.industries track by $index" value="{{industry}}">{{industry}}</option>
 			</select>
 		</div>
 
