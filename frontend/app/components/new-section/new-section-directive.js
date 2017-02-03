@@ -7,7 +7,7 @@ function NewSectionController($http) {
     return (vm.formCreateSection.$submitted && vm.formCreateSection[input].$invalid);
   }
 
-  vm.submitDeck = function() {
+  vm.formCreateSection = function() {
     let data = {
       name: vm.name,
       industry: vm.industry
