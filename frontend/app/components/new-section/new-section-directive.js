@@ -7,15 +7,14 @@ function NewSectionController($http) {
     return (vm.formCreateSection.$submitted && vm.formCreateSection[input].$invalid);
   }
 
-  vm.formCreateSection = function() {
+  vm.submitSection = function() {
     let data = {
-      name: vm.name,
-      industry: vm.industry
+      name: vm.title
     }
-    $http.post('http://10.118.37.64:4000/admin/deck', data).then(function(res) {
-      vm.isDeckCreated = 'success';
+    $http.post('http://10.118.37.64:4000/admin/section', data).then(function(res) {
+      vm.isSectionCreated = 'success';
     }, function(err) {
-      vm.isDeckCreated = 'error';
+      vm.isSectionCreated = 'error';
     });
   }
 }

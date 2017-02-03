@@ -1,5 +1,5 @@
 <div class="tab-pane">
-	<div ng-switch="deck.isSectionCreated" class="pc-alert">
+	<div ng-switch="section.isSectionCreated" class="pc-alert">
 		<div ng-switch-when="success" class="alert alert-success">
 			<strong>Success!</strong> Section is successfully created.
 		</div>
@@ -7,7 +7,7 @@
 			<strong>Sorry!</strong> Section could not be created. Please try again later!!
 		</div>
 	</div>
-	<form name="section.formCreateSection" ng-submit="section.formCreateSection.$valid && deck.submitSection()" novalidate>
+	<form name="section.formCreateSection" ng-submit="section.formCreateSection.$valid && section.submitSection()" novalidate>
 		<div class="form-group">
 			<label for="sectionTitle" class="form-label">Section Title:</label>
 			<input type="text" class="form-control" name="sectionTitle" required placeholder="Enter section title" ng-model="section.title">
