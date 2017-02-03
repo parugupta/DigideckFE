@@ -1,6 +1,7 @@
 'use strict';
 
 function NewSectionController($http) {
+  let vm = this;
   vm.isSectionCreated = 'no_alert';
 
   vm.showError = function(input) {
