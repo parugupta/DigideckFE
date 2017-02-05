@@ -29,5 +29,6 @@ angular.module('myApp.new-slide-directive', [])
   controller: NewSlideController,
   controllerAs: 'slide',
   bindings: {
+    action: '@'
   }
 });

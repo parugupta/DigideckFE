@@ -26,5 +26,6 @@ angular.module('myApp.new-section-directive', [])
   templateUrl: 'components/new-section/new-section-view.html',
   controller: NewSectionController,
   bindings: {
+    action: '@'
   }
 });

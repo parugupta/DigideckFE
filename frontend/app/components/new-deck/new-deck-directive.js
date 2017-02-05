@@ -30,5 +30,6 @@ angular.module('myApp.new-deck-directive', [])
   controller: DeckController,
   controllerAs: 'deck',
   bindings: {
+    action: '@'
   }
 });

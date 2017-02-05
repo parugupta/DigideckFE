@@ -8,9 +8,10 @@ angular.module('myApp', [
   'myApp.new-slide-directive'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
+  let newDeck = '<new-slide id="slide" class="tab-pane fade" action="create"></new-slide>';
   $locationProvider.hashPrefix('!');
   $routeProvider.when('/update', {
-    templateUrl: 'modules/update/update.html'
+    template: newDeck
   });
 
   $routeProvider.when('/create', {

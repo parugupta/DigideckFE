@@ -8,10 +8,12 @@
 		</div>
 	</div>
 	<form name="section.formCreateSection" ng-submit="section.formCreateSection.$valid && section.submitSection()" novalidate>
-		<div class="form-group">
-			<label for="sectionTitle" class="form-label">Section Title:</label>
-			<input type="text" class="form-control" name="sectionTitle" required placeholder="Enter section title" ng-model="section.title">
-			<span class="error-message" ng-show="section.showError('sectionTitle')">Please enter the title</span>
+		<div ng-if="section.action === 'create'">
+			<div class="form-group">
+				<label for="sectionTitle" class="form-label">Section Title:</label>
+				<input type="text" class="form-control" name="sectionTitle" required placeholder="Enter section title" ng-model="section.title">
+				<span class="error-message" ng-show="section.showError('sectionTitle')">Please enter the title</span>
+			</div>
 		</div>
 
 		<button type="submit" class="btn btn-primary">Submit</button>
