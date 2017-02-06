@@ -5,13 +5,14 @@ angular.module('myApp', [
   'ngRoute',
   'myApp.new-deck-directive',
   'myApp.new-section-directive',
-  'myApp.new-slide-directive'
+  'myApp.new-slide-directive',
+  'myApp.create'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
-  let newDeck = '<new-slide id="slide" class="tab-pane fade" action="create"></new-slide>';
+  //let newDeck = '<new-slide id="slide" class="tab-pane fade" action="create"></new-slide>';
   $locationProvider.hashPrefix('!');
   $routeProvider.when('/update', {
-    template: newDeck
+    templateUrl: 'modules/update/update.html'
   });
 
   $routeProvider.when('/create', {
@@ -23,4 +24,10 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
   });
 
   $routeProvider.otherwise({redirectTo: '/create'});
+}])
+
+.controller('HeaderCtrl', ['$scope', '$location', function($scope, $location) {
+    $scope.isActive = function (viewLocation) { 
+      return viewLocation === $location.path();
+    };
 }]);
