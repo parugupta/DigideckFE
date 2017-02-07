@@ -7,6 +7,7 @@ angular.module('myApp', [
   'myApp.new-section-directive',
   'myApp.new-slide-directive',
   'myApp.create',
+  'myApp.view',
   'myApp.link'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
@@ -25,7 +26,9 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
   });
 
   $routeProvider.when('/view', {
-    templateUrl: 'modules/view/view.html'
+    templateUrl: 'modules/view/view.html',
+    controller: 'ViewCtrl',
+    controllerAs: 'view'
   });
 
   $routeProvider.otherwise({redirectTo: '/create'});
