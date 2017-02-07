@@ -5,11 +5,23 @@ body {
 	background: linear-gradient(to bottom, #00B4FF 0, #1A5199 100%);
 }
 
-.container {
+.main.container {
 	width: 60%;
 	height: 100vh;
-	padding: 20px;
+	padding: 0;
 	background: #fff;
+}
+
+.content.container-fluid {
+	margin: 0 20px 20px;
+}
+
+.custom-nav li{
+	background: #E1EEF8;
+}
+
+.custom-nav li a:hover {
+	background: #c1dcf0;
 }
 
 .error-message {

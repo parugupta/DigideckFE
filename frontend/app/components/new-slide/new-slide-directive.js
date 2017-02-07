@@ -12,7 +12,8 @@ function NewSlideController($http) {
     let data = {
       title: vm.title,
       description: vm.description,
-      video_url: vm.videoUrl
+      video_url: vm.videoUrl,
+      template_type: 'default'
     }
     $http.post('http://10.118.37.64:4000/admin/slide', data).then(function(res) {
       vm.isSlideCreated = 'success';
