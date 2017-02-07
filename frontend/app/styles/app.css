@@ -36,3 +36,20 @@ body {
 .tab-content {
 	padding: 20px 0;
 }
+
+.custom-accordion .panel-heading {
+	padding: 0;
+}
+
+.custom-accordion .panel-heading a {
+	padding: 10px 15px;
+	text-decoration: none;
+	display: block;
+	background: #E1EEF8;
+	color: #428bca;
+}
+
+.custom-accordion .panel-heading a:hover {
+	background-color: #c1dcf0;
+	color: #2a6496;
+}

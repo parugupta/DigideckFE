@@ -7,16 +7,15 @@ angular.module('myApp', [
   'myApp.new-section-directive',
   'myApp.new-slide-directive',
   'myApp.create',
-  'myApp.update',
-  'myApp.view'
+  'myApp.link'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   //let newDeck = '<new-slide id="slide" class="tab-pane fade" action="create"></new-slide>';
   $locationProvider.hashPrefix('!');
-  $routeProvider.when('/update', {
-    templateUrl: 'modules/update/update.html',
-    controller: 'UpdateCtrl',
-    controllerAs: 'update'
+  $routeProvider.when('/link', {
+    templateUrl: 'modules/link/link.html',
+    controller: 'LinkCtrl',
+    controllerAs: 'link'
   });
 
   $routeProvider.when('/create', {
@@ -26,9 +25,7 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
   });
 
   $routeProvider.when('/view', {
-    templateUrl: 'modules/view/view.html',
-    controller: 'ViewCtrl',
-    controllerAs: 'view'
+    templateUrl: 'modules/view/view.html'
   });
 
   $routeProvider.otherwise({redirectTo: '/create'});
