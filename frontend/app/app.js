@@ -7,7 +7,8 @@ angular.module('myApp', [
   'myApp.new-section-directive',
   'myApp.new-slide-directive',
   'myApp.create',
-  'myApp.update'
+  'myApp.update',
+  'myApp.view'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   //let newDeck = '<new-slide id="slide" class="tab-pane fade" action="create"></new-slide>';
@@ -25,7 +26,9 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
   });
 
   $routeProvider.when('/view', {
-    templateUrl: 'modules/view/view.html'
+    templateUrl: 'modules/view/view.html',
+    controller: 'ViewCtrl',
+    controllerAs: 'view'
   });
 
   $routeProvider.otherwise({redirectTo: '/create'});
