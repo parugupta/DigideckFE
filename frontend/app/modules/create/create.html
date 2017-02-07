@@ -1,10 +1,10 @@
 <ul class="nav nav-pills nav-justified custom-nav">
-	<li role="presentation" ng-class="{active: create.isActive('deck')}"><a href="#deck" data-toggle="tab">Deck</a></li>
-	<li role="presentation" ng-class="{active: create.isActive('section')}"><a href="#section" data-toggle="tab">Section</a></li>
-	<li role="presentation" ng-class="{active: create.isActive('slide')}"><a href="#slide" data-toggle="tab">Slide</a></li>
+	<li role="presentation" class="active"><a href="javascript:;" data-toggle="tab" data-target="#deck">Deck</a></li>
+	<li role="presentation" ng-class="{active: create.isActive('section')}"><a href="javascript:;" data-toggle="tab" data-target="#section">Section</a></li>
+	<li role="presentation" ng-class="{active: create.isActive('slide')}"><a href="javascript:;" data-toggle="tab" data-target="#slide">Slide</a></li>
 </ul>
 <div class="tab-content">
-	<new-deck id="deck" class="tab-pane fade" ng-class="{'in active' : create.isActive('deck')}" action="create"></new-deck>
-	<new-section id="section" class="tab-pane fade" ng-class="{ 'in active' : create.isActive('section')}" action="create"></new-section>
-	<new-slide id="slide" class="tab-pane fade" ng-class="{ 'in active' : create.isActive('slide')}" action="create"></new-slide>
+	<new-deck id="deck" class="tab-pane fade in active" action="create"></new-deck>
+	<new-section id="section" class="tab-pane fade" action="create"></new-section>
+	<new-slide id="slide" class="tab-pane fade" action="create"></new-slide>
 </div>
