@@ -1,0 +1,100 @@
+<h5>Linking</h5>
+<div class="panel-group custom-accordion" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a href="javascript:;" data-toggle="collapse" data-parent="#accordion" data-target="#collapse1">
+        Industry - Deck Linking</a>
+      </h4>
+    </div>
+    <div id="collapse1" class="panel-collapse collapse in">
+      <div class="panel-body">
+      	<form name="link.formLinkDeck" ng-submit="link.formLinkDeck.$valid && link.linkDeck()" novalidate>
+      		<div class="form-group">
+				<label for="industryPanel1" class="form-label">Industry: </label>
+				<select class="form-control" name="industryPanel1" ng-model="link.industryPanel1" ng-options="industry for industry in link.industries" required>
+					<option value="">-- Choose Industry --</option>
+				</select>
+				{{link.industryPanel1}}
+				<span class="error-message" ng-show="link.showError('formLinkDeck','industryPanel1')">Please select the industry</span>
+			</div>
+			<div class="form-group">
+				<label for="deckPanel1" class="form-label">Deck: </label>
+				<select class="form-control" name="deckPanel1" ng-model="link.deckPanel1" ng-options="deck.title for deck in link.decks" required>
+					<option value="">-- Choose Deck --</option>
+				</select>
+				{{link.deckPanel1}}
+				<span class="error-message" ng-show="link.showError('formLinkDeck','deckPanel1')">Please select the deck</span>
+			</div>
+
+			<button type="submit" class="btn btn-primary">Link</button>
+      	</form>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a href="javascript:;" data-toggle="collapse" data-parent="#accordion" data-target="#collapse2">
+        Deck - Section Linking</a>
+      </h4>
+    </div>
+    <div id="collapse2" class="panel-collapse collapse">
+      <div class="panel-body">
+      	<form name="link.formLinkSection" ng-submit="link.formLinkSection.$valid && link.linkSection()" novalidate>
+      		<div class="form-group">
+				<label for="deckPanel2" class="form-label">Deck: </label>
+				<select class="form-control" name="deckPanel2" ng-model="link.deckPanel2" ng-options="deck.title for deck in link.decks" required>
+					<option value="">-- Choose Deck --</option>
+				</select>
+				{{link.deckPanel2}}
+				<span class="error-message" ng-show="link.showError('formLinkSection','deckPanel2')">Please select the deck</span>
+			</div>
+			<div class="form-group">
+				<label for="sectionPanel2" class="form-label">Section: </label>
+				<select class="form-control" name="sectionPanel2" ng-model="link.sectionPanel2" ng-options="section.title for section in link.sections" required>
+					<option value="">-- Choose Section --</option>
+				</select>
+				{{link.sectionPanel2}}
+				<span class="error-message" ng-show="link.showError('formLinkSection','sectionPanel2')">Please select the section</span>
+			</div>
+
+			<button type="submit" class="btn btn-primary">Link</button>
+      	</form>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a href="javascript:;" data-toggle="collapse" data-parent="#accordion" data-target="#collapse3">
+        Section - Slide Linking</a>
+      </h4>
+    </div>
+    <div id="collapse3" class="panel-collapse collapse">
+      <div class="panel-body">
+      	<form name="link.formLinkSlide" ng-submit="link.formLinkSlide.$valid && link.linkSection()" novalidate>
+      		<div class="form-group">
+				<label for="sectionPanel3" class="form-label">Section: </label>
+				<select class="form-control" name="sectionPanel3" ng-model="link.sectionPanel3" ng-options="section.title for section in link.sections" required>
+					<option value="">-- Choose Section --</option>
+				</select>
+				{{link.sectionPanel3}}
+				<span class="error-message" ng-show="link.showError('formLinkSlide','sectionPanel3')">Please select the section</span>
+			</div>
+			<div class="form-group">
+				<label for="slidePanel3" class="form-label">Slide: </label>
+				<select class="form-control" name="slidePanel3" ng-model="link.slidePanel3" ng-options="slide.title for slide in link.slides" required>
+					<option value="">-- Choose Slide --</option>
+				</select>
+				{{link.slidePanel3}}
+				<span class="error-message" ng-show="link.showError('formLinkSlide','slidePanel3')">Please select the slide</span>
+			</div>
+
+			<button type="submit" class="btn btn-primary">Link</button>
+      	</form></div>
+    </div>
+  </div>
+</div>
+
+<h5>Select the order the slide and section (sequence)</h5>
