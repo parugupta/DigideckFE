@@ -1,63 +1,40 @@
 'use strict';
 
 angular.module('myApp.link', ['ngRoute'])
-.controller('LinkCtrl', function() {
+.controller('LinkCtrl', function($http) {
 	let vm = this;
 	vm.industries = ['TMT', 'CNIP'];
   	//vm.industry = vm.industries[0];
-  	vm.decks = [
-  		{
-  			id: 1234,
-  			title: 'Deck1'
-  		},{
-  			id: 5678,
-  			title: 'Deck2'
-  		},{
-  			id: 9012,
-  			title: 'Deck3'
-  		}
-  	];
+  	vm.getDecks = function() {
+  		$http.get('http://10.118.37.64:4000/admin/deck').then(function(res) {
+  			console.log('deck response---', res);
+  			vm.decks = res.data;
+	    }, function(err) {
+	    	console.log('error---',err)
+	    });
+  	};
 
-  	vm.sections = [
-  		{
-  			id: 12,
-  			title: 'Section1'
-  		},{
-  			id: 34,
-  			title: 'Section2'
-  		},{
-  			id: 56,
-  			title: 'Section3'
-  		}
-  	];
+  	vm.getSections = function() {
+  		$http.get('http://10.118.37.64:4000/admin/section').then(function(res) {
+  			console.log('section response---', res);
+  			vm.sections = res.data;
+	    }, function(err) {
+	    	console.log('error---',err)
+	    });
+  	};
 
-  	vm.slides = [
-  		{
-  			id: 1,
-  			title: 'Slide1'
-  		},{
-  			id: 2,
-  			title: 'Slide2'
-  		},{
-  			id: 3,
-  			title: 'Slide3'
-  		},{
-  			id: 4,
-  			title: 'Slide4'
-  		},{
-  			id: 5,
-  			title: 'Slide5'
-  		},{
-  			id: 6,
-  			title: 'Slide6'
-  		}
-  	];
+  	vm.getSlides = function() {
+  		$http.get('http://10.118.37.64:4000/admin/slide').then(function(res) {
+  			console.log('slide response---', res);
+  			vm.slides = res.data;
+	    }, function(err) {
+	    	console.log('error---',err)
+	    });
+  	};
 
-  	/*$http.get('http://10.118.37.64:4000/admin/deck', data).then(function(res) {
-      vm.isDeckCreated = 'success';
-    }, function(err) {
-      vm.isDeckCreated = 'error';
-    });*/
+  	vm.getDecks();
+  	vm.getSections();
+  	vm.getSlides();
 
   	vm.showError = function(formName, input) {
     return (vm[formName].$submitted && vm[formName][input].$invalid);
