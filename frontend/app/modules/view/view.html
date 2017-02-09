@@ -1,8 +1,8 @@
 <form name="view.formGetDecks" ng-submit="view.getDeckList()" novalidate>
 	<div class="form-group">
 		<label for="industry" class="form-label">Industry: </label>
-		<select class="form-control" name="industry" ng-model="view.industry">
-			<option ng-repeat="industry in view.industries track by $index" value="{{industry}}">{{industry}}</option>
+		<select class="form-control" name="industry" ng-model="view.industry" ng-options="industry for industry in view.industries" required>
+			<option value="" disabled>-- Choose Industry --</option>
 		</select>
 	</div>
 	
