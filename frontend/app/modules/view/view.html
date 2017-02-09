@@ -8,48 +8,127 @@
 	
 	<button type="submit" id="viewButton" class="btn btn-primary">Submit</button>
 </form>
-<div class="lists">
+<div class="view-list">
 	<div class="deck-list list-group col-md-4">
-		<a data-target="#" href="javascript:;" class="list-group-item active disabled">
-			Deck
-		</a>
-		<a data-target="#" href="javascript:;" class="list-group-item ">
-			Cras justo odio
-		</a>
-		<a data-target="#" href="javascript:;" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
-		<a data-target="#" href="javascript:;" class="list-group-item list-group-item-action">Morbi leo risus</a>
-		<a data-target="#" href="javascript:;" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
-		<a data-target="#" href="javascript:;" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>
+		<div class="list-group-item active disabled">Deck</div>
+		<!--<div class="view-list-items" ng-repeat="deck in view.decksByIndustry">
+			<a data-target="#" href="javascript:;" class="list-group-item view-list-name" ng-click="showSection()">Cras justo odio</a>
+			<a data-target="#" href="javascript:;" ng-click="view.showEditForm('deck')><span class="glyphicon glyphicon-pencil"></span></a>
+		</div>-->
+		<div class="view-list-items">
+			<a data-target="#" href="javascript:;" class="list-group-item view-list-name" ng-click="showSection()">Cras justo odio</a>
+			<a data-target="#" href="javascript:;" ng-click="view.showEditForm('deck')"><span class="glyphicon glyphicon-pencil"></span></a>
+		</div>
+		<div class="view-list-items">
+			<a data-target="#" href="javascript:;" class="list-group-item view-list-name" ng-click="showSection()">Dapibus ac facilisis in</a>
+			<a data-target="#" href="javascript:;" ng-click="view.showEditForm('deck')"><span class="glyphicon glyphicon-pencil"></span></a>
+		</div>
+		<div class="view-list-items">
+			<a data-target="#" href="javascript:;" class="list-group-item view-list-name" ng-click="showSection()">Morbi leo risus</a>
+			<a data-target="#" href="javascript:;" ng-click="view.showEditForm('deck')"><span class="glyphicon glyphicon-pencil"></span></a>
+		</div>
+		<div class="view-list-items">
+			<a data-target="#" href="javascript:;" class="list-group-item view-list-name" ng-click="showSection()">Porta ac consectetur ac</a>
+			<a data-target="#" href="javascript:;" ng-click="view.showEditForm('deck')"><span class="glyphicon glyphicon-pencil"></span></a>
+		</div>
+		<div class="view-list-items">
+			<a data-target="#" href="javascript:;" class="list-group-item view-list-name" ng-click="showSection()">Vestibulum at eros</a>
+			<a data-target="#" href="javascript:;" ng-click="view.showEditForm('deck')"><span class="glyphicon glyphicon-pencil"></span></a>
+		</div>
 	</div>
 
 	<div class=" section-list list-group col-md-4">
-		<a data-target="#" href="javascript:;" class="list-group-item active disabled">
-			Section
-		</a>
-		<a data-target="#" href="javascript:;" class="list-group-item ">
-			Cras justo odio
-		</a>
-		<a data-target="#" href="javascript:;" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
-		<a data-target="#" href="javascript:;" class="list-group-item list-group-item-action">Morbi leo risus</a>
-		<a data-target="#" href="javascript:;" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
-		<a data-target="#" href="javascript:;" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>
+		<div class="list-group-item active disabled">Section</div>
+		<!--<div class="view-list-items" ng-repeat="deck in view.sectionsByDeck">
+			<a data-target="#" href="javascript:;" class="list-group-item view-list-name" ng-click="showSlide()">Cras justo odio</a>
+			<a data-target="#" href="javascript:;" ng-click="view.showEditForm('section')><span class="glyphicon glyphicon-pencil"></span></a>
+		</div>-->
+		<div class="view-list-items">
+			<a data-target="#" href="javascript:;" class="list-group-item view-list-name" ng-click="showSlide()">Cras justo odio</a>
+			<a data-target="#" href="javascript:;" ng-click="view.showEditForm('section')"><span class="glyphicon glyphicon-pencil"></span></a>
+		</div>
+		<div class="view-list-items">
+			<a data-target="#" href="javascript:;" class="list-group-item view-list-name" ng-click="showSlide()">Dapibus ac facilisis in</a>
+			<a data-target="#" href="javascript:;" ng-click="view.showEditForm('section')"><span class="glyphicon glyphicon-pencil"></span></a>
+		</div>
+		<div class="view-list-items">
+			<a data-target="#" href="javascript:;" class="list-group-item view-list-name" ng-click="showSlide()">Morbi leo risus</a>
+			<a data-target="#" href="javascript:;" ng-click="view.showEditForm('section')"><span class="glyphicon glyphicon-pencil"></span></a>
+		</div>
+		<div class="view-list-items">
+			<a data-target="#" href="javascript:;" class="list-group-item view-list-name" ng-click="showSlide()">Porta ac consectetur ac</a>
+			<a data-target="#" href="javascript:;" ng-click="view.showEditForm('section')"><span class="glyphicon glyphicon-pencil"></span></a>
+		</div>
+		<div class="view-list-items">
+			<a data-target="#" href="javascript:;" class="list-group-item view-list-name" ng-click="showSlide()">Vestibulum at eros</a>
+			<a data-target="#" href="javascript:;" ng-click="view.showEditForm('section')"><span class="glyphicon glyphicon-pencil"></span></a>
+		</div>
 	</div>
 	<div class="slide-list list-group col-md-4">
-		<a data-target="#" href="javascript:;" class="list-group-item active disabled">
-			Slide
-		</a>
-		<a data-target="#" href="javascript:;" class="list-group-item ">
-			Cras justo odio
-		</a>
-		<a data-target="#" href="javascript:;" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
-		<a data-target="#" href="javascript:;" class="list-group-item list-group-item-action">Morbi leo risus</a>
-		<a data-target="#" href="javascript:;" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
-		<a data-target="#" href="javascript:;" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>
+		<div class="list-group-item active disabled">Slide</div>
+		<!--<div class="view-list-items" ng-repeat="deck in view.slidesBySection">
+			<a data-target="#" href="javascript:;" class="list-group-item view-list-name">Cras justo odio</a>
+			<a data-target="#" href="javascript:;" ng-click="view.showEditForm('slide')><span class="glyphicon glyphicon-pencil"></span></a>
+		</div>-->
+		<div class="view-list-items">
+			<a data-target="#" href="javascript:;" class="list-group-item view-list-name">Cras justo odio</a>
+			<a data-target="#" href="javascript:;" ng-click="view.showEditForm('slide')"><span class="glyphicon glyphicon-pencil"></span></a>
+		</div>
+		<div class="view-list-items">
+			<a data-target="#" href="javascript:;" class="list-group-item view-list-name">Dapibus ac facilisis in</a>
+			<a data-target="#" href="javascript:;" ng-click="view.showEditForm('slide')"><span class="glyphicon glyphicon-pencil"></span></a>
+		</div>
+		<div class="view-list-items">
+			<a data-target="#" href="javascript:;" class="list-group-item view-list-name">Morbi leo risus</a>
+			<a data-target="#" href="javascript:;" ng-click="view.showEditForm('slide')"><span class="glyphicon glyphicon-pencil"></span></a>
+		</div>
+		<div class="view-list-items">
+			<a data-target="#" href="javascript:;" class="list-group-item view-list-name">Porta ac consectetur ac</a>
+			<a data-target="#" href="javascript:;" ng-click="view.showEditForm('slide')"><span class="glyphicon glyphicon-pencil"></span></a>
+		</div>
+		<div class="view-list-items">
+			<a data-target="#" href="javascript:;" class="list-group-item view-list-name">Vestibulum at eros</a>
+			<a data-target="#" href="javascript:;" ng-click="view.showEditForm('slide')"><span class="glyphicon glyphicon-pencil"></span></a>
+		</div>
 	</div>
 </div>
-
-<style>
-.lists{
-	margin-top: 20px;
-}
-</style>
+<form ng-if="view.displayForm !== false" name="view.formEditDeck" ng-submit="view.formEditDeck.$valid && view.submitEdit()" novalidate>
+	<div ng-if="view.displayForm === 'deck'">
+		<div class="form-group">
+			<label for="deckName" class="form-label">Deck Name:</label>
+			<input type="text" class="form-control" name="deckName" required ng-model="view.deckName" placeholder="Please enter deck name">
+			<span class="error-message" ng-show="view.showError('view.formEditDeck', 'deckName')">Please enter the deck name</span>
+		</div>
+		<div class="form-group">
+			<label for="industry" class="form-label">Industry: </label>
+			<select class="form-control" name="industry" ng-model="view.deckIndustry" ng-options="industry for industry in view.industries" required>
+				<option value="" disabled>-- Choose Industry --</option>
+			</select>
+		</div>
+	</div>
+	<div ng-if="view.displayForm === 'section'">
+		<div class="form-group">
+			<label for="sectionTitle" class="form-label">Section Title:</label>
+			<input type="text" class="form-control" name="sectionTitle" required placeholder="Enter section title" ng-model="view.sectionTitle">
+			<span class="error-message" ng-show="view.showError('view.formEditDeck', 'sectionTitle')">Please enter the title</span>
+		</div>
+	</div>
+	<div ng-if="view.displayForm === 'slide'">
+		<div class="form-group">
+			<label for="slideTitle" class="form-label">Slide Title:</label>
+			<input type="text" class="form-control" name="slideTitle" required placeholder="Enter slide title" ng-model="view.slideTitle">
+			<span class="error-message" ng-show="slide.showError('view.formEditDeck', 'slideTitle')">Please enter the slide title</span>
+		</div>
+		<div class="form-group">
+			<label for="slideDesc" class="form-label">Description:</label>
+			<textarea type="text" class="form-control" name="slideDesc" placeholder="Enter slide content" ng-model="view.slideDescription"></textarea>
+			<span class="error-message" ng-show="slide.showError('view.formEditDeck', 'slideDesc')">Please enter the slide title</span>
+		</div>
+		<div class="form-group">
+			<label for="slideUrl" class="form-label">Video URL:</label>
+			<input type="text" class="form-control" name="slideUrl" placeholder="Enter video URL" ng-model="slide.slideVideoUrl">
+			<span class="error-message" ng-show="slide.showError('view.formEditDeck', slideUrl')">Please enter the slide title</span>
+		</div>
+	</div>
+	<button type="submit" class="btn btn-primary">Submit</button>
+</form>

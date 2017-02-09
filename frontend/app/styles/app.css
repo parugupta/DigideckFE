@@ -53,3 +53,20 @@ body {
 	background-color: #c1dcf0;
 	color: #2a6496;
 }
+
+.view-list {
+	margin-top: 20px;
+}
+
+.view-list-items {
+	border: 1px solid #ddd;
+	border-bottom-right-radius: 4px;
+	margin-bottom: 1px;
+}
+
+.view-list-name {
+	display: inline-block;
+	width: 90%;
+	border: 0;
+	margin-bottom: 0;
+}
