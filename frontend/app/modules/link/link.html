@@ -15,26 +15,26 @@
       </h4>
     </div>
     <div id="collapse1" class="panel-collapse collapse in">
-      <div class="panel-body">
-      	<form name="link.formLinkDeck" ng-submit="link.formLinkDeck.$valid && link.linkDeck()" novalidate>
-					<div class="form-group">
-						<label for="industryPanel1" class="form-label">Industry: </label>
-						<select class="form-control" name="industryPanel1" ng-model="link.industryPanel1" ng-options="industry for industry in link.industries" required>
-							<option value="" disabled>-- Choose Industry --</option>
-						</select>
-						<span class="error-message" ng-show="link.showError('formLinkDeck','industryPanel1')">Please select the industry</span>
-					</div>
-					<div class="form-group">
-						<label for="deckPanel1" class="form-label">Deck: </label>
-						<select class="form-control" name="deckPanel1" ng-model="link.deckPanel1" ng-options="link.name for deck in link.decks" required>
-							<option value="" disabled>-- Choose Deck --</option>
-						</select>
-						<span class="error-message" ng-show="link.showError('formLinkDeck','deckPanel1')">Please select the deck</span>
-					</div>
-					<button type="submit" class="btn btn-primary">Link</button>
-				</form>
-			</div>
+    	<div class="panel-body">
+	      	<form name="link.formLinkDeck" ng-submit="link.formLinkDeck.$valid && link.linkDeck()" novalidate>
+				<div class="form-group">
+					<label for="industryPanel1" class="form-label">Industry: </label>
+					<select class="form-control" name="industryPanel1" ng-model="link.industryPanel1" ng-options="industry for industry in link.industries" required>
+						<option value="" disabled>-- Choose Industry --</option>
+					</select>
+					<span class="error-message" ng-show="link.showError('formLinkDeck','industryPanel1')">Please select the industry</span>
+				</div>
+				<div class="form-group">
+					<label for="deckPanel1" class="form-label">Deck: </label>
+					<select class="form-control" name="deckPanel1" ng-model="link.deckPanel1" ng-options="deck.name for deck in link.decks" required>
+						<option value="" disabled>-- Choose Deck --</option>
+					</select>
+					<span class="error-message" ng-show="link.showError('formLinkDeck','deckPanel1')">Please select the deck</span>
+				</div>
+				<button type="submit" class="btn btn-primary">Link</button>
+			</form>
 		</div>
+	</div>
 	</div>
 	<div class="panel panel-default">
 		<div class="panel-heading">

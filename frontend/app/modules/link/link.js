@@ -32,9 +32,11 @@ angular.module('myApp.link', ['ngRoute'])
 	    });
   	};
 
-  	vm.getDecks();
-  	vm.getSections();
-  	vm.getSlides();
+  	var init = function() {
+  		vm.getDecks();
+	  	vm.getSections();
+	  	vm.getSlides();
+	};
 
   	vm.showError = function(formName, input) {
 		return (vm[formName].$submitted && vm[formName][input].$invalid);
@@ -47,27 +49,30 @@ angular.module('myApp.link', ['ngRoute'])
 
 	vm.onDeckSectionSubmit = function() {
 		let data = {
-			deck: link.deckPanel2,
-			section: link.sectionPanel2,
-			sequence: link.sectionSequence
+			deck: vm.deckPanel2,
+			section: vm.sectionPanel2,
+			sequence: vm.sectionSequence
 		};
+		console.log("data", data);
 		$http.post('http://10.118.37.64:4000/admin/decksection', data).then(function(res) {
   			console.log('SUCESS---', res);
 			vm.isLinkingSuccessful = 'success';
   			vm.errorMessage = 'Section has been successfully linked to the deck';
+
 	    }, function(err) {
 	    	console.log('error---',err);
 			vm.vm.isLinkingSuccessful = 'error';
 			vm.errorMessage = 'Error linking section with the deck, please try again!';
 	    });
-	}
+	};
 
 	vm.onSectionSlideSubmit = function() {
 		let data = {
-			section: link.sectionPanel3,
-			slide: link.slidePanel3,
-			sequence: link.slideSequence
+			section: vm.sectionPanel3,
+			slide: vm.slidePanel3,
+			sequence: vm.slideSequence
 		};
+		console.log("2 data", data);
 		$http.post('http://10.118.37.64:4000/admin/sectionslide', data).then(function(res) {
   			console.log('SUCESS---', res);
 			vm.isLinkingSuccessful = true;
@@ -77,5 +82,7 @@ angular.module('myApp.link', ['ngRoute'])
 			vm.vm.isLinkingSuccessful = false;
 			vm.errorMessage = 'Error linking slide with the section, please try again!';
 	    });
-	}
+	};
+
+	init();
 });
