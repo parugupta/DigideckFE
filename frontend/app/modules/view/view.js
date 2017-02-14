@@ -7,42 +7,46 @@ angular.module('myApp.view', ['ngRoute'])
     vm.industries = ['TMT', 'CNIP', 'others'];
     vm.industry = vm.industries[0];
     vm.displayForm = false;
+    vm.showDeckList = false;
+    vm.showSectionList = false;
+    vm.showSlideList = false;
     
     vm.getDeckList = function() {
        let data = {
             //industry: vm.industry,
             industry : '582d748f7357d2762641fff1'
         };
-       
+        vm.showDeckList = false;
+        vm.showSectionList = false;
+        vm.showSlideList = false;
+        
         $http.get('http://10.118.37.64:4000/deck', data).then(function(res) {
+           vm.showDeckList = true;
            vm.decksByIndustry = res.data;
         }, function(err) {
+            //vm.showDeckList = false;
             console.log('ERROR', err);
             vm.decksByIndustry = [];
         });
     }
 
-    vm.showSection = function() {
-        let data = {
-            deck : '582d748f7357d2762641fff1'
-        };
-       
+    vm.showSection = function(data) {
         $http.get('http://10.118.37.64:4000/admin/section', data).then(function(res) {
+           vm.showSectionList = true;
            vm.sectionsByDeck = res.data;
         }, function(err) {
+            //vm.showSectionList = false;
             console.log('ERROR', err);
             vm.sectionsByDeck = [];
         });
     }
 
-    vm.showSlide = function() {
-        let data = {
-            section : '582d748f7357d2762641fff1'
-        };
-
+    vm.showSlide = function(data) {
          $http.get('http://10.118.37.64:4000/admin/slide', data).then(function(res) {
+           vm.showSlideList = true;
            vm.slidesBySection = res.data;
         }, function(err) {
+            //vm.showSlideList = false;
             console.log('ERROR', err);
             vm.slidesBySection = [];
         });
