@@ -8,14 +8,18 @@
 		</div>
 	</div>
 	<form name="section.formCreateSection" ng-submit="section.formCreateSection.$valid && section.submitSection()" novalidate>
-		<div ng-if="section.action === 'create'">
-			<div class="form-group">
-				<label for="sectionTitle" class="form-label">Section Title:</label>
-				<input type="text" class="form-control" name="sectionTitle" required placeholder="Enter section title" ng-model="section.title">
-				<span class="error-message" ng-show="section.showError('sectionTitle')">Please enter the title</span>
-			</div>
+		<div class="form-group">
+			<label for="sectionTitle" class="form-label">Section Title:</label>
+			<input type="text" class="form-control" name="sectionTitle" required placeholder="Enter section title" ng-model="section.sectionData.title">
+			<span class="error-message" ng-show="section.showError('sectionTitle')">Please enter the title</span>
+		</div>
+		<div class="form-group">
+			<label for="sectionSequence" class="form-label">Sequence:</label>
+			<input type="text" class="form-control" name="sectionSequence" required ng-model="section.sectionData.sequence" placeholder="Please enter the sequence of the section">
+			<span class="error-message" ng-show="section.showError('sectionSequence')">Please enter the sequence of the section</span>
 		</div>
 
-		<button type="submit" class="btn btn-primary">Submit</button>
+		<button type="submit" ng-if="section.action === 'create'" class="btn btn-primary">Submit</button>
+		<button type="submit" ng-if="section.action === 'update'" class="btn btn-primary">Update</button>
 	</form>
 </div>

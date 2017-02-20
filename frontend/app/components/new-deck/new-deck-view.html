@@ -8,20 +8,21 @@
 		</div>
 	</div>
 	<form name="deck.formCreateDeck" ng-submit="deck.formCreateDeck.$valid && deck.submitDeck()" novalidate>
-		<div ng-if="deck.action === 'create'">
-			<div class="form-group">
-				<label for="deckName" class="form-label">Deck Name:</label>
-				<input type="text" class="form-control" name="deckName" required ng-model="deck.name" placeholder="Please enter deck name">
-				<span class="error-message" ng-show="deck.showError('deckName')">Please enter the deck name</span>
-			</div>
-			<div class="form-group">
-				<label for="industry" class="form-label">Industry: </label>
-				<select class="form-control" name="industry" ng-model="deck.industry">
-					<option ng-repeat="industry in deck.industries track by $index" value="{{industry}}">{{industry}}</option>
-				</select>
-			</div>
+		<div class="form-group">
+			<label for="deckName" class="form-label">Deck Name:</label>
+			<input type="text" class="form-control" name="deckName" required ng-model="deck.name" placeholder="Please enter deck name">
+			<span class="error-message" ng-show="deck.showError('deckName')">Please enter the deck name</span>
+		</div>
+		<div class="form-group">
+			<label for="industry" class="form-label">Industry: </label>
+
+			<select class="form-control" name="industry" ng-model="deck.industry" ng-options="industry.name for industry in deck.industries" required>
+				<option value="" disabled>-- Choose Industry --</option>
+			</select>
+			<span class="error-message" ng-show="deck.showError('industry')">Please select the industry</span>
 		</div>
 
-		<button type="submit" class="btn btn-primary">Submit</button>
+		<button type="submit" ng-if="deck.action === 'create'" class="btn btn-primary">Submit</button>
+		<button type="submit" ng-if="deck.action === 'update'" class="btn btn-primary">Update</button>
 	</form>
 </div>

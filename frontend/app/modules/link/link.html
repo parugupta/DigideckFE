@@ -49,14 +49,14 @@
 					<div class="form-group">
 						<label for="deckPanel2" class="form-label">Deck: </label>
 						<select class="form-control" name="deckPanel2" ng-model="link.deckPanel2" ng-options="deck.name for deck in link.decks" required>
-							<option value="">-- Choose Deck --</option>
+							<option value="" disabled>-- Choose Deck --</option>
 						</select>
 						<span class="error-message" ng-show="link.showError('formLinkSection','deckPanel2')">Please select the deck</span>
 					</div>
 					<div class="form-group">
 						<label for="sectionPanel2" class="form-label">Section: </label>
 						<select class="form-control" name="sectionPanel2" ng-model="link.sectionPanel2" ng-options="section.title for section in link.sections" required>
-							<option value="">-- Choose Section --</option>
+							<option value="" disabled>-- Choose Section --</option>
 						</select>
 						<span class="error-message" ng-show="link.showError('formLinkSection','sectionPanel2')">Please select the section</span>
 					</div>
@@ -83,14 +83,14 @@
 					<div class="form-group">
 						<label for="sectionPanel3" class="form-label">Section: </label>
 						<select class="form-control" name="sectionPanel3" ng-model="link.sectionPanel3" ng-options="section.title for section in link.sections" required>
-							<option value="">-- Choose Section --</option>
+							<option value="" disabled>-- Choose Section --</option>
 						</select>
 						<span class="error-message" ng-show="link.showError('formLinkSlide','sectionPanel3')">Please select the section</span>
 					</div>
 					<div class="form-group">
 						<label for="slidePanel3" class="form-label">Slide: </label>
 						<select class="form-control" name="slidePanel3" ng-model="link.slidePanel3" ng-options="slide.title for slide in link.slides" required>
-							<option value="">-- Choose Slide --</option>
+							<option value="" disabled>-- Choose Slide --</option>
 						</select>
 						<span class="error-message" ng-show="link.showError('formLinkSlide','slidePanel3')">Please select the slide</span>
 					</div>

@@ -6,18 +6,18 @@ function NewSectionController($http) {
 
   vm.showError = function(input) {
     return (vm.formCreateSection.$submitted && vm.formCreateSection[input].$invalid);
-  }
+  };
 
   vm.submitSection = function() {
-    let data = {
-      name: vm.title
+    if (vm.action === 'create') {
+      $http.post('http://10.118.37.64:4000/admin/section', vm.sectionData).then(function(res) {
+        vm.isSectionCreated = 'success';
+      }, function(err) {
+        vm.isSectionCreated = 'error';
+      });
     }
-    $http.post('http://10.118.37.64:4000/admin/section', data).then(function(res) {
-      vm.isSectionCreated = 'success';
-    }, function(err) {
-      vm.isSectionCreated = 'error';
-    });
-  }
+    
+  };
 }
 
 angular.module('myApp.new-section-directive', [])
@@ -27,6 +27,7 @@ angular.module('myApp.new-section-directive', [])
   controller: NewSectionController,
   controllerAs: 'section',
   bindings: {
-    action: '@'
+    action: '@',
+    sectionData: '<'
   }
 });
