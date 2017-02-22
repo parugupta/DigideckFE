@@ -1,20 +1,27 @@
 <div class="tab-pane">
 	<div ng-switch="section.isSectionCreated" class="pc-alert">
 		<div ng-switch-when="success" class="alert alert-success">
-			<strong>Success!</strong> Section is successfully created.
+			<strong>Success!</strong> Section is successfully 
+			<span ng-switch="section.action">
+				<span ng-switch-when="create">created</span>
+				<span ng-switch-when="update">updated</span>
+			</span>.
 		</div>
 		<div ng-switch-when="error" class="alert alert-danger">
-			<strong>Sorry!</strong> Section could not be created. Please try again later!!
+			<strong>Sorry!</strong> Section could not be <span ng-switch="section.action">
+				<span ng-switch-when="create">created</span>
+				<span ng-switch-when="update">updated</span>
+			</span>. Please try again later!!
 		</div>
 	</div>
 	<form name="section.formCreateSection" ng-submit="section.formCreateSection.$valid && section.submitSection()" novalidate>
-		<div class="form-group">
-			<label for="sectionTitle" class="form-label">Section Title:</label>
+		<div class="form-group required">
+			<label for="sectionTitle" class="form-label">Section Title: </label>
 			<input type="text" class="form-control" name="sectionTitle" required placeholder="Enter section title" ng-model="section.sectionData.title">
 			<span class="error-message" ng-show="section.showError('sectionTitle')">Please enter the title</span>
 		</div>
-		<div class="form-group">
-			<label for="sectionSequence" class="form-label">Sequence:</label>
+		<div class="form-group required">
+			<label for="sectionSequence" class="form-label">Sequence: </label>
 			<input type="text" class="form-control" name="sectionSequence" required ng-model="section.sectionData.sequence" placeholder="Please enter the sequence of the section">
 			<span class="error-message" ng-show="section.showError('sectionSequence')">Please enter the sequence of the section</span>
 		</div>
