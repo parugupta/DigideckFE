@@ -5,6 +5,11 @@ body {
 	background: linear-gradient(to bottom, #00B4FF 0, #1A5199 100%);
 }
 
+.form-group.required .form-label:after {
+  content:"*";
+  color:red;
+}
+
 .main.container {
 	width: 60%;
 	min-height: 100vh;

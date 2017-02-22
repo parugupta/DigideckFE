@@ -16,6 +16,13 @@ function NewSectionController($http) {
         vm.isSectionCreated = 'error';
       });
     }
+    else if (vm.action === 'update') {
+      $http.patch('http://10.118.37.64:4000/admin/section/'+vm.sectionData._id, vm.sectionData).then(function(res) {
+        vm.isSectionCreated = 'success';
+      }, function(err) {
+        vm.isSectionCreated = 'error';
+      });
+    }
     
   };
 }

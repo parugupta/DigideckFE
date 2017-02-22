@@ -1,31 +1,38 @@
 <div class="tab-pane">
 	<div ng-switch="slide.isSlideCreated" class="pc-alert">
 		<div ng-switch-when="success" class="alert alert-success">
-			<strong>Success!</strong> Slide is successfully created.
+			<strong>Success!</strong> Slide is successfully 
+			<span ng-switch="slide.action">
+				<span ng-switch-when="create">created</span>
+				<span ng-switch-when="update">updated</span>
 		</div>
 		<div ng-switch-when="error" class="alert alert-danger">
-			<strong>Sorry!</strong> Slide could not be created. Please try again later!!
+			<strong>Sorry!</strong> Slide could not be 
+			<span ng-switch="slide.action">
+				<span ng-switch-when="create">created</span>
+				<span ng-switch-when="update">updated</span>
+			</span>. Please try again later!!
 		</div>
 	</div>
     <form name="slide.formCreateSlide" ng-submit="slide.formCreateSlide.$valid && slide.submitSlide()" novalidate>
-		<div class="form-group">
+		<div class="form-group required">
 			<label for="templateType" class="form-label">Template type: </label>
 			<select class="form-control" name="templateType" ng-model="slide.slideData.template_type">
 				<option ng-repeat="templateType in slide.templateTypeList" value="{{templateType}}">{{templateType}}</option>
 			</select>
 		</div>
-		<div class="form-group">
-			<label for="slideTitle" class="form-label">Slide Title:</label>
+		<div class="form-group required">
+			<label for="slideTitle" class="form-label">Slide Title: </label>
 			<input type="text" class="form-control" name="slideTitle" required placeholder="Enter slide title" ng-model="slide.slideData.title">
 			<span class="error-message" ng-show="slide.showError('slideTitle')">Please enter the slide title</span>
 		</div>
 		<div class="form-group">
-			<label for="slideDesc" class="form-label">Description:</label>
+			<label for="slideDesc" class="form-label">Description: </label>
 			<textarea type="text" class="form-control" name="slideDesc" placeholder="Enter slide content" ng-model="slide.slideData.description"></textarea>
 			<span class="error-message" ng-show="slide.showError('slideDesc')">Please enter the slide title</span>
 		</div>
 		<div class="form-group">
-			<label for="slideVideoUrl" class="form-label">Video URL:</label>
+			<label for="slideVideoUrl" class="form-label">Video URL: </label>
 			<input type="text" class="form-control" name="slideVideoUrl" placeholder="Enter video URL" ng-model="slide.slideData.video_url">
 			<span class="error-message" ng-show="slide.showError('slideVideoUrl')">Please enter the slide title</span>
 		</div>

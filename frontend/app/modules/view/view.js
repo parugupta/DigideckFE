@@ -32,6 +32,8 @@ angular.module('myApp.view', ['ngRoute'])
         vm.showDeckList = false;
         vm.showSectionList = false;
         vm.showSlideList = false;
+
+        //'http://10.118.37.64:4000/admin/deck', data
         
         $http.get('http://10.118.37.64:4000/deck').then(function(res) {
            vm.decksByIndustry = res.data;

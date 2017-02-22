@@ -31,6 +31,13 @@ function NewSlideController($http) {
         vm.isSlideCreated = 'error';
       });
     }
+    else if (vm.action === 'update') {
+      $http.patch('http://10.118.37.64:4000/admin/slide/'+vm.slideData._id, vm.slideData).then(function(res) {
+        vm.isSlideCreated = 'success';
+      }, function(err) {
+        vm.isSlideCreated = 'error';
+      });
+    }
   };
 }
 
