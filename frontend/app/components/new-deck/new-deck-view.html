@@ -16,7 +16,7 @@
 	<form name="deck.formCreateDeck" ng-submit="deck.formCreateDeck.$valid && deck.submitDeck()" novalidate>
 		<div class="form-group required">
 			<label for="deckName" class="form-label">Deck Name: </label>
-			<input type="text" class="form-control" name="deckName" required ng-model="deck.name" placeholder="Please enter deck name">
+			<input type="text" class="form-control" name="deckName" required ng-model="deck.deckData.title" placeholder="Please enter deck name">
 			<span class="error-message" ng-show="deck.showError('deckName')">Please enter the deck name</span>
 		</div>
 		<div class="form-group required">

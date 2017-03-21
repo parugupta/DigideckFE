@@ -25,17 +25,13 @@ angular.module('myApp.view', ['ngRoute'])
     };
 
     vm.getDeckList = function() {
-       let data = {
-            industry: vm.industry,
-            //industry : '582d748f7357d2762641fff1'
-        };
         vm.showDeckList = false;
         vm.showSectionList = false;
         vm.showSlideList = false;
 
-        //'http://10.118.37.64:4000/admin/deck', data
+        let endpoint = 'http://10.118.37.64:4000/admin/deck?industry=' + vm.industry;
         
-        $http.get('http://10.118.37.64:4000/deck').then(function(res) {
+        $http.get(endpoint).then(function(res) {
            vm.decksByIndustry = res.data;
            vm.showDeckList = res.data.length;
         }, function(err) {
@@ -46,8 +42,37 @@ angular.module('myApp.view', ['ngRoute'])
     };
 
     vm.showSection = function(deckId) {
-        vm.sectionsByDeck = vm.decksByIndustry;
-        vm.showSectionList = vm.decksByIndustry.length;
+        let endpoint = 'http://10.118.37.64:4000/admin/decksection?deck=' + deckId;
+        
+        $http.get(endpoint).then(function(res) {
+            let sectionIdList = [];
+            angular.forEach(res.data, function(data) {
+                sectionIdList.push(data.section);
+            });
+            vm.findSection(sectionIdList);
+        }, function(err) {
+            //vm.showDeckList = false;
+            console.log('ERROR', err);
+            vm.sectionsByDeck = [];
+            vm.showSectionList = false;
+        });
+    };
+
+    vm.findSection = function(sectionIDList) {
+        let sectionEndpoint = 'http://10.118.37.64:4000/deck';
+        vm.sectionsByDeck = [];
+        $http.get(sectionEndpoint).then(function(sections) {
+            angular.forEach(sections.data, function(section) {
+                if (sectionIDList.indexOf(section._id) > 0) {
+                    vm.sectionsByDeck.push(section);
+                }
+            });
+            vm.showSectionList = vm.sectionsByDeck.length;
+        }, function(err) {
+            console.log('ERROR', err);
+            vm.sectionsByDeck = [];
+            vm.showSectionList = false;
+        });
     };
 
     vm.showSlide = function(sectionItem) {

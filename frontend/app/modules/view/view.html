@@ -1,7 +1,7 @@
 <form name="view.formGetDecks" ng-submit="view.getDeckList()" novalidate>
 	<div class="form-group">
 		<label for="industry" class="form-label">Industry: </label>
-		<select class="form-control" name="industry" ng-model="view.industry" ng-options="industry.name for industry in view.industries" required>
+		<select class="form-control" name="industry" ng-model="view.industry" ng-options="industry._id as industry.name for industry in view.industries" required>
 			<option value="" disabled>-- Choose Industry --</option>
 		</select>
 		<span class="error-message" ng-show="view.showError('formGetDecks', 'industry')">Please select the industry</span>
@@ -13,7 +13,7 @@
 	<div class="deck-list list-group col-md-4" ng-show="view.showDeckList">
 		<div class="list-group-item active disabled">Deck</div>
 		<div class="view-list-items" ng-repeat="deckItem in view.decksByIndustry">
-			<a data-target="#" href="javascript:;" class="list-group-item view-list-name" ng-click="view.showSection(deckItem._id)">{{deckItem.title}}</a>
+			<a data-target="#" href="javascript:;" class="list-group-item view-list-name" ng-click="view.showSection(deckItem._id)">{{deckItem.name}}</a>
 			<a data-target="#editformContainer" href="javascript:;" ng-click="view.showEditForm('deck', deckItem)"><span class="glyphicon glyphicon-pencil"></span></a>
 		</div>
 	</div>

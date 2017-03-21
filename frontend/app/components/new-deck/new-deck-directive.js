@@ -21,7 +21,7 @@ function DeckController($http) {
   vm.submitDeck = function() {
     if (vm.action === 'create') {
       let data = {
-        name: vm.name,
+        name: vm.deckData.title,
         industry: vm.industry
       }
       $http.post('http://10.118.37.64:4000/admin/deck', data).then(function(res) {
@@ -29,11 +29,20 @@ function DeckController($http) {
       }, function(err) {
         vm.isDeckCreated = 'error';
       });
+    } else if (vm.action === 'update') {
+      let data = {
+        name: vm.deckData.title,
+        industry: vm.industry
+      }
+      $http.patch('http://10.118.37.64:4000/admin/slide', data).then(function(res) {
+        vm.isDeckUpdated = 'success';
+      }, function(err) {
+        vm.isDeckUpdated = 'error';
+      });
     }
   };
 
   vm.getIndustryList();
-
 }
 
 angular.module('myApp.new-deck-directive', [])
@@ -44,6 +53,6 @@ angular.module('myApp.new-deck-directive', [])
   controllerAs: 'deck',
   bindings: {
     action: '@',
-    deckData: '<'
+    deckData: '<?'
   }
 });
